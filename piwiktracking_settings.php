@@ -96,6 +96,12 @@ function piwiktracking_section_basic() {
 		'label' => __( 'Enable client side DoNotTrack detection', 'piwiktracking' )
 			) );
 
+	$html .= piwiktracking_create_setting( array(
+		'id' => 'disablecookies',
+		'type' => 'checkbox',
+		'value' => true,
+		'label' => __( 'Disable tracking cookies', 'piwiktracking' )
+			) );
 
 	$html .= '</div>' . "\n";
 
@@ -229,7 +235,8 @@ function piwiktracking_validate_settings($input) {
 		'subdomaintracking',
 		'prependsitedomain',
 		'hidealiasclicks',
-		'clientsidednt'
+		'clientsidednt',
+		'disablecookies'
 	);
 
 	foreach ( $checkbox_options as $checkbox_option ) {

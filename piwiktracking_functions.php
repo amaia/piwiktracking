@@ -42,6 +42,7 @@ function piwiktracking_javascript_tracking() {
 	$prependsitedomain = piwiktracking_get_option( 'prependsitedomain' ) ? '_paq.push(["setDocumentTitle", document.domain + "/" + document.title]);' . "\n" : '';
 	$hidealiasclicks = piwiktracking_get_option( 'hidealiasclicks' ) ? '_paq.push(["setDomains", ["*.' . piwiktracking_get_domain() . '"]]);' . "\n" : '';
 	$cliensidednt = piwiktracking_get_option( 'clientsidednt' ) ? '_paq.push(["setDoNotTrack", true]);' . "\n" : '';
+	$disablecookies = piwiktracking_get_option( 'disablecookies' ) ? '_paq.push(["disableCookies"]);' . "\n" : '';
 	?>
 	<!-- Piwik -->
 	<script type="text/javascript">
@@ -50,6 +51,7 @@ function piwiktracking_javascript_tracking() {
 		<?php echo $subdomaintracking; ?>
 		<?php echo $hidealiasclicks; ?>
 		<?php echo $cliensidednt; ?>
+		<?php echo $disablecookies; ?>
 		_paq.push(["trackPageView"]);
 		<?php echo $linktracking; ?>
 		(function() {
